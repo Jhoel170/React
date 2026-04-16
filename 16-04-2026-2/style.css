@@ -1,0 +1,47 @@
+ * {
+    margin: 15px;
+}
+#btnBuscar {
+    border-radius: 20px; 
+    width: 150px;
+    height: 30px;; 
+    margin-bottom: 0px; 
+    color:darkcyan; 
+    border: 3px solid darkcyan; 
+    font-size: 12pt; 
+}
+#btnBuscar:hover { 
+    border: 3px solid cyan; 
+}
+#btnBuscar:active { 
+    border: 3px solid grey; 
+}
+#btnAyuda {
+    border-radius: 14px; 
+    width: 45px;
+    height: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    color: white;
+    font-size: 20pt;
+    background-color: darkcyan; 
+    border: 3px solid darkcyan; 
+}
+#btnAyuda:hover {
+    border: 3px solid cyan; 
+    background-color: cyan; 
+}
+#btnAyuda:active {
+    border: 3px solid grey; 
+    background-color: grey; }
+
+#btnLogin {
+    width: 200px;
+    height: 35px;
+    margin-top: 0px;
+    background-color:dodgerblue; 
+    color: white;
+    font-size: 14pt;
+    box-shadow: 5px 5px 1px black; 
+}
+ 

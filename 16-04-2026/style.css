@@ -1,0 +1,34 @@
+.celeste{
+    color: aqua;
+}
+.negro{
+    background-color: black;
+}
+.blanco{
+    color: white;
+}
+.azul{
+    background-color: blue;
+}
+.centro{
+    text-align: center;
+}
+.subrayado{
+    text-decoration: underline;
+}
+.celestes{
+    background-color: rgb(78, 232, 243);
+}
+.negros{
+    color: black;
+}
+.final
+{
+    text-align: right;
+}
+.italic{
+    font-style: italic;
+}
+.letra{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
