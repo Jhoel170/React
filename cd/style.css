@@ -1,0 +1,16 @@
+
+        h3{
+            background-color: rgb(43, 155, 170);
+            color:rgb(162, 170, 43);
+        }
+        #titulo{
+            text-align: center;
+            background-color: blueviolet;
+            text-overflow: clip;
+        } 
+        .subtitulo{
+            color: bisque;
+        }
+        .intento{
+            background-color: rgb(138, 30, 30);
+        }
