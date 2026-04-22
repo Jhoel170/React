@@ -8,10 +8,13 @@
 </head>
 <body>
     <h1 id="principal">Lista de Estudiantes</h1>
+    <form onsubmit="insertarEstudiante(event);">
+        <input type="text" id="txtEstudiante" placeholder="Ingrese un nombre" required >
+        <input type="submit" value="Agregar">
+    </form>
     <div id="contenedor">
 
     </div>
-    <button onclick="agregarEstudiante();">Agregar</button>
     <script src="./script.js"></script>
 </body>
 </html>
