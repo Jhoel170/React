@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Estudiante from "../components/Estudiante";
-import { listaEstudiantes } from "../utils/data";
+//import { listaEstudiantes } from "../utils/data";
 import { EstudianteForm } from "../components/EstudianteForm";
+import axios from "axios";
 
 
 const EstudiantesPage = () => {
     //1er Paso
-    const [lstEstudiantes, setLstEstudiantes] = useState(listaEstudiantes);
+    const [lstEstudiantes, setLstEstudiantes] = useState([]);
+
+    //1. petición HTTP usando axios
+    //2. manejo de una promesa
+    //3. Manejo de side-effects utilizando un hook useEffect
+
+    useEffect(() => {
+        axios.get("http://172.31.45.10:8000/estudiantes")
+        .then((res) => {
+            console.log(res);
+            setLstEstudiantes(res.data)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [])
+
+    
     
         console.log("Renderizando...");
 

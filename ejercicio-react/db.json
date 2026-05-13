@@ -1,0 +1,10 @@
+{
+    "estudiantes": [
+        {
+            "id": 1,
+            "nombre": "Jhoel",
+            "edad": 21,
+            "url": ""
+        }
+    ]
+}
