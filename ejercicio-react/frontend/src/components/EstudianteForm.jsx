@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 export const EstudianteForm = (props) => {
     
@@ -11,6 +12,8 @@ export const EstudianteForm = (props) => {
         url: "",
     });
 
+    
+
     const handlerSubmit = (e) => {
         e.preventDefault();
         if(nuevoEstudiante.nombre.length >= 8) {
@@ -20,7 +23,7 @@ export const EstudianteForm = (props) => {
         }
 
         if(nuevoEstudiante.edad >= 18) {
-            setErrorEdad("")
+            setErrorEdad()
         }else{
             setErrorEdad("No menores de 18")
         }
@@ -31,7 +34,7 @@ export const EstudianteForm = (props) => {
     }
 
     const [errorNombre, setErrorNombre] = useState("");
-    const [errorEdad, setErrorEdad] = useState(0);
+    const [errorEdad, setErrorEdad] = useState();
 
     return(
         <form onSubmit={handlerSubmit}>

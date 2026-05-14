@@ -14,7 +14,7 @@ const EstudiantesPage = () => {
     //3. Manejo de side-effects utilizando un hook useEffect
 
     useEffect(() => {
-        axios.get("http://172.31.45.10:8000/estudiantes")
+        axios.get("http://172.31.45.20:8000/estudiantes")
         .then((res) => {
             console.log(res);
             setLstEstudiantes(res.data)
@@ -32,6 +32,13 @@ const EstudiantesPage = () => {
         //Temporalmente el ID se contruye a partir de la fecha del sistema actual
         const estudianteFinal = {...nuevoEstudiante, id: Date.now()}
         setLstEstudiantes(prev => ([...prev, estudianteFinal]))
+        axios.post("http://172.31.45.20:8000/estudiantes", estudianteFinal)
+        .then((res) => {
+            setLstEstudiantes(res.data)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
     {/*const handlerAgregarEstudiante = (e) => {
         e.preventDefault();
@@ -44,7 +51,8 @@ const EstudiantesPage = () => {
     return (
         <div>
             <h1>Estudiantes</h1>
-            <EstudianteForm onAgregar = {AgregarEstudiante} />
+
+            {/*<EstudianteForm onAgregar = {AgregarEstudiante} />*/}
             <hr />
             
             {/*<Estudiante nombre={"Esteban Gutierrez"} 
