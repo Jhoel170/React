@@ -6,13 +6,10 @@ export const EstudianteForm = (props) => {
     const {onAgregar} = props;
 
     const [nuevoEstudiante, setNuevoEstudiante] = useState ({
-        id: "",
         nombre: "",
         edad: 170,
         url: "",
     });
-
-    
 
     const handlerSubmit = (e) => {
         e.preventDefault();

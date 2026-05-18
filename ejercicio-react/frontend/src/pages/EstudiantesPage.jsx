@@ -1,42 +1,20 @@
-import { useEffect, useState } from "react";
 import Estudiante from "../components/Estudiante";
 //import { listaEstudiantes } from "../utils/data";
 import { EstudianteForm } from "../components/EstudianteForm";
-import { api } from "../utils/api";
 
-const EstudiantesPage = () => {
+
+const EstudiantesPage = (props) => {
+
+    const { estudiantes } = props;
     //1er Paso
-    const [lstEstudiantes, setLstEstudiantes] = useState([]);
 
     //1. petición HTTP usando axios
     //2. manejo de una promesa
     //3. Manejo de side-effects utilizando un hook useEffect
 
-    useEffect(() => {
-        api.get("/estudiantes")
-        .then((res) => {
-            console.log(res);
-            setLstEstudiantes(res.data)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }, [])
-    
         console.log("Renderizando...");
 
-    const AgregarEstudiante = (nuevoEstudiante) => {
-        //Temporalmente el ID se contruye a partir de la fecha del sistema actual
-        const estudianteFinal = {...nuevoEstudiante, id: Date.now()}
-        setLstEstudiantes(prev => ([...prev, estudianteFinal]))
-        api.post("/estudiantes", estudianteFinal)
-        .then((res) => {
-            setLstEstudiantes(res.data)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
+    
     {/*const handlerAgregarEstudiante = (e) => {
         e.preventDefault();
         //Temporalmente el id se contruye a partir de la fecha del sistema actual
@@ -63,7 +41,7 @@ const EstudiantesPage = () => {
             url={"https://www.facebook.com"} />*/}
 
             {
-                lstEstudiantes.map((estudiante) => {
+                estudiantes.map((estudiante) => {
                     return <Estudiante
                         key = {estudiante.id}
                         nombre = {estudiante.nombre}
