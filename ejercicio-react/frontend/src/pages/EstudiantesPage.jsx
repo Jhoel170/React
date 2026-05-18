@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import Estudiante from "../components/Estudiante";
 //import { listaEstudiantes } from "../utils/data";
 import { EstudianteForm } from "../components/EstudianteForm";
-import axios from "axios";
-
+import { api } from "../utils/api";
 
 const EstudiantesPage = () => {
     //1er Paso
@@ -14,7 +13,7 @@ const EstudiantesPage = () => {
     //3. Manejo de side-effects utilizando un hook useEffect
 
     useEffect(() => {
-        axios.get("http://172.31.45.20:8000/estudiantes")
+        api.get("/estudiantes")
         .then((res) => {
             console.log(res);
             setLstEstudiantes(res.data)
@@ -23,8 +22,6 @@ const EstudiantesPage = () => {
             console.log(err);
         })
     }, [])
-
-    
     
         console.log("Renderizando...");
 
@@ -32,7 +29,7 @@ const EstudiantesPage = () => {
         //Temporalmente el ID se contruye a partir de la fecha del sistema actual
         const estudianteFinal = {...nuevoEstudiante, id: Date.now()}
         setLstEstudiantes(prev => ([...prev, estudianteFinal]))
-        axios.post("http://172.31.45.20:8000/estudiantes", estudianteFinal)
+        api.post("/estudiantes", estudianteFinal)
         .then((res) => {
             setLstEstudiantes(res.data)
         })
