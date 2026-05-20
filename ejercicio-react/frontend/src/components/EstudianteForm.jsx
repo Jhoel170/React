@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const EstudianteForm = (props) => {
+const EstudianteForm = (props) => {
     
     const {onAgregar} = props;
 
@@ -27,6 +28,7 @@ export const EstudianteForm = (props) => {
 
         if(nuevoEstudiante.nombre.length >= 8 && nuevoEstudiante.edad >= 18){
             onAgregar(nuevoEstudiante)
+            navigation
         }
     }
 
@@ -79,3 +81,5 @@ export const EstudianteForm = (props) => {
         </form>
     )
 }
+
+export default EstudianteForm;

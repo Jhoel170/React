@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export function HomePage() {
+function HomePage() {
  return(
     <div>
         <h1><em><strong>Bienvenidos</strong></em></h1>
@@ -14,3 +14,5 @@ export function HomePage() {
     </div>
  )
 }
+
+export default HomePage;

@@ -1,27 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Estudiante from "./components/Estudiante";
+import EstudianteForm from "./components/EstudianteForm";
 import EstudiantesPage from "./pages/EstudiantesPage";
-import { EstudianteForm } from "./components/EstudianteForm";
-import { HomePage } from "./pages/HomePage";
+import HomePage from "./pages/HomePage"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useEstudiante } from "./hooks/useEstudiante";  //1
+import DetalleEstudiante from "./pages/DetalleEstudiante";
 
-//Se añadio esto veras
-import { useEstudiante } from "./hooks/useEstudiante";
+const App = () => {
 
-function App() {
-
-  // y se añadio esto tambien
-  //ya que el app es el padre de los dos
-  const { estudiantes, agregarEstudiante} = useEstudiante();
+  const { estudiantes, agregarEstudiante} = useEstudiante();  //2
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/estudiantes" element={<EstudiantesPage estudiantes = {estudiantes}/> }></Route>
-        <Route path="/estudiantes/nuevo" element={<EstudianteForm onAgregar = {agregarEstudiante}/> }></Route>
-        <Route path="/home" element={<HomePage/> }></Route>
+        <Route path="/estudiantes" element= {<EstudiantesPage estudiantes = {estudiantes}/>}></Route> {/* 3 */ }
+        <Route path="/estudiantes/nuevo" element= {<EstudianteForm onAgregar = {agregarEstudiante} />}></Route>
+        <Route path= "/estudiantes/:id/detalle" element= {<DetalleEstudiante/>}></Route>
+        <Route path="/" element= {<HomePage/>}></Route>
       </Routes>
-    </ BrowserRouter>
-
+    </BrowserRouter>
   );
 }
 
