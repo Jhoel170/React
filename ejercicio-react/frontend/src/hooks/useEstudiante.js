@@ -36,5 +36,15 @@ export const useEstudiante = () => {
         })*/
     }
 
+    const eliminarEstudiante = (id) => {
+
+        api.delete(`/estudiantes${id}`)
+        .then(() => prev => estudiantes.filter(e => e.id != id))
+        //.then(() => setEstudiantes(estudiantes.filter(e => e.id != id))) // Lo mismo de la linea de arriba
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return { estudiantes, agregarEstudiante }
 }
