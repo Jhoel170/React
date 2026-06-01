@@ -18,6 +18,10 @@ const DetalleEstudiante = () => {
             <h2>{estudiante.nombre}</h2>
             <h4>Edad: {estudiante.edad}</h4>
             {estudiante.url?<a href={estudiante.url}>Home Page</a>:<span>Home page no disponible</span>}
+            <div>
+                <button>Editar</button>
+            </div>
+            
         </div>
     )
 }
